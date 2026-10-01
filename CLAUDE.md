@@ -109,3 +109,25 @@ authorize building backup infrastructure unasked, migrating storage
 providers, or taking any action with data on your own initiative.
 Surfacing the gap and proposing the fix is the job; standing up new
 infrastructure is a separate, explicit decision the user makes.
+
+<!-- BEGIN standard:session-wrapup v1 — identical in every repo. Edit the master copy in gobluemba/dotfiles (claude/standards.md), then re-sync; never edit this block in place. -->
+## Session wrap-up — tell me when it's safe to close
+
+When this session pushes commits, opens or merges a PR, or triggers a deploy
+(GitHub Actions, Railway, Render, Netlify):
+
+1. Do NOT end the turn silently. Use the `ci-wait-notify` skill to arm a durable
+   check-in that sends a push notification when the job reaches a final state
+   (success, failure, cancelled, timeout). If that skill isn't available in this
+   session, use whatever scheduled check-in / push-notification tool is, within
+   the same limits below.
+2. Budget guardrails (non-negotiable):
+   - Poll no more often than every 5 minutes; stop after 6 checks (30 min max).
+   - Never auto-retry, re-run, or redeploy a failed job. Report it and ask me.
+   - One check-in per job; don't stack duplicate watchers.
+3. When everything has landed, send ONE final message:
+   - "✅ All landed — safe to close this session", followed by one line per job:
+     repo · job · pass/fail · link
+   - Or "⚠️ Not safe to close" with what failed or is still running.
+4. If nothing was pushed or deployed: "✅ Nothing pending — safe to close."
+<!-- END standard:session-wrapup -->

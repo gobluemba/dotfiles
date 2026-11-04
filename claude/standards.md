@@ -1,4 +1,4 @@
-<!-- BEGIN standard:parallel-sessions v1 — identical in every repo. Edit the master copy in gobluemba/dotfiles (claude/standards.md), then re-sync; never edit this block in place. -->
+<!-- BEGIN standard:parallel-sessions v2 — identical in every repo. Edit the master copy in gobluemba/dotfiles (claude/standards.md), then re-sync; never edit this block in place. -->
 ## Parallel sessions — one writer, and decisions live in the repo
 
 The owner often runs several Claude sessions at once: Claude Code (terminal, web and mobile),
@@ -20,6 +20,15 @@ rules keep them from overwriting each other, or acting on a decision another cha
    version, a migration number, a release tag — check that no open PR already claims it.
 5. **Leave nothing hanging.** End every session by stating what changed, what is still open, and
    where it is recorded. An unanswered question in an abandoned chat is how sessions drift apart.
+6. **One working session per repo.** Only one Claude Code session at a time is a repo's writer:
+   the one that commits, pushes, and opens or merges PRs. Another session may read and test the
+   writer's commits and send it what it finds, but it never writes to that repo. While a PR waits
+   on CI or a merge, nothing else is merged into the default branch, because each merge sends the
+   waiting PR back through CI. At session start, look for another writer (other open sessions on
+   the repo, open PRs, branches above the default branch); if there is one, say so and ask the
+   owner which session continues. When the work moves on, finish or hand off and archive the idle
+   session, with the owner's yes. (Owner, 2026-11-03: *"I should only have one session per tool
+   open at any given time"*, then *"make standing rule for all repos"*.)
 <!-- END standard:parallel-sessions -->
 
 <!-- BEGIN standard:session-wrapup v1 — identical in every repo. Edit the master copy in gobluemba/dotfiles (claude/standards.md), then re-sync; never edit this block in place. -->

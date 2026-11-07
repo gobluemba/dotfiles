@@ -52,3 +52,25 @@ When this session pushes commits, opens or merges a PR, or triggers a deploy
    - Or "⚠️ Not safe to close" with what failed or is still running.
 4. If nothing was pushed or deployed: "✅ Nothing pending — safe to close."
 <!-- END standard:session-wrapup -->
+
+<!-- BEGIN standard:local-folders v1 — identical in every repo. Edit the master copy in gobluemba/dotfiles (claude/standards.md), then re-sync; never edit this block in place. -->
+## Local folders — one copy of every repo
+
+Owner rule, 2026-11-07, for every repo now and in future: on the owner's PC every
+GitHub repo lives in `$HOME\code\<repo>` (for example `$HOME\code\FairFlow`), and that
+folder is the only local copy.
+
+1. **Work only there.** Never clone, copy or create a repo anywhere else on the PC
+   (Downloads, Desktop, Documents, OneDrive or the user folder itself). Claude Code
+   worktrees and preview copies go under `$HOME\code\` too.
+2. **Every PowerShell block starts in that folder**, with `cd $HOME\code\<repo>`, so it
+   works when pasted into a fresh window.
+3. **Any other folder path is out of date.** When a file in a repo, a script or a
+   scheduled task names a different folder for a repo, use `$HOME\code\<repo>` instead
+   and tell the owner which file needs fixing.
+4. **Older copies are read-only history.** Repo folders made before 2026-11-07 outside
+   `$HOME\code\` are not used for work. Claude never deletes them; the owner decides
+   what to keep after anything unique in them has been rescued.
+5. **A cloud session cannot see the PC.** It gives the owner commands that run in
+   `$HOME\code\<repo>`, never in another folder.
+<!-- END standard:local-folders -->
